@@ -5,9 +5,15 @@ import Contacts from './components/Contacts.vue'
 </script>
 
 <template>
-  <Home />
-  <Projects />
-  <Contacts />
+  <nav>
+    <button @click="scrollToSection('home')">Home</button>
+    <button @click="scrollToSection('projects')">Projects</button>
+    <button @click="scrollToSection('contact')">Contact</button>
+  </nav>
+
+  <Home id="home" />
+  <Projects id="projects" />
+  <Contacts id="contact" />
 </template>
 
 <style scoped>
