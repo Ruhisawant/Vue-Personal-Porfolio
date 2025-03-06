@@ -12,6 +12,8 @@ import Contacts from './components/Contacts.vue'
 
 <style scoped>
 .read-the-docs {
+  padding: 0;
+  margin: 0;
   color: #888;
 }
 </style>
