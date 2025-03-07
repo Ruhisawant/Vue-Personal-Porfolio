@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 
 const welcome = ref(true);
 const counter = ref(0);
@@ -10,8 +10,17 @@ const increment = () => {
   counter.value++;
 }
 
+const localStorageKey = 'homeInputValue';
+
+onMounted(() => {
+  if (localStorage.getItem(localStorageKey)) {
+    inputValue.value = localStorage.getItem(localStorageKey);
+  }
+});
+
 watch(inputValue, (newValue, oldValue) => {
   console.log(`Input value changed from ${oldValue} to ${newValue}`);
+  localStorage.setItem(localStorageKey, newValue);
 });
 </script>
 
@@ -19,8 +28,8 @@ watch(inputValue, (newValue, oldValue) => {
   <section class="home">
     <div>Home</div>
     
-    <h1 v-if="welcome">Welcome!</h1>
-    <h1 v-else>Hello</h1>
+    <h1 v-if="welcome" class="welcome-message">Welcome!</h1>
+    <h1 v-else class="welcome-message">Hello</h1>
 
     <button @click="welcome = !welcome">Toggle</button>
 
@@ -42,5 +51,15 @@ watch(inputValue, (newValue, oldValue) => {
   background-color: blue;
   font-size: 30px;
   color: white;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.welcome-message {
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 </style>
