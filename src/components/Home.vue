@@ -1,13 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const welcome = ref(true);
 const counter = ref(0);
 const showMessage = ref(false);
+const inputValue = ref('');
 
 const increment = () => {
   counter.value++;
 }
+
+watch(inputValue, (newValue, oldValue) => {
+  console.log(`Input value changed from ${oldValue} to ${newValue}`);
+});
 </script>
 
 <template>
@@ -23,7 +28,8 @@ const increment = () => {
 
     <button @click="showMessage = !showMessage">Toggle Message</button>
     <p v-show="showMessage">Counter: {{ counter }}</p>
-    
+
+    <input type="text" v-model="inputValue" placeholder="Enter something">
   </section>
     
 </template>

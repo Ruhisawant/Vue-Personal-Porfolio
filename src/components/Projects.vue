@@ -1,6 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-const projects = ['1','2','3'];
+import { ref, computed } from 'vue'
+const projects = ref(['1','2','3']);
+
+const projectCount = computed(() => projects.value.length);
 </script>
 
 <template>
@@ -9,6 +11,7 @@ const projects = ['1','2','3'];
         <ul>
             <li v-for="project in projects">{{ project }}</li>
         </ul>
+        <p>Number of projects: {{ projectCount }}</p>
     </section>
 </template>
 
