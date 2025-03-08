@@ -7,25 +7,55 @@ const projectCount = computed(() => projects.value.length);
 </script>
 
 <template>
-    <section class="projects">
-        <div>Projects</div>
-        <ul>
-            <li v-for="project in projects">{{ project }}</li>
-        </ul>
-
-        <button @click="showProjects = !showProjects">Toggle Message</button>
-        <p v-if="projects.length === 0">No projects available</p>
-        <p v-else v-show="showProjects">Number of projects: {{ projectCount }}</p>
-    </section>
+  <section class="projects">
+    <h1>Projects</h1>
+    <ul>
+      <li v-for="project in projects" :key="project">{{ project }}</li>
+    </ul>
+    <button @click="showProjects = !showProjects">Toggle Message</button>
+    <p v-if="projects.length === 0">No projects available</p>
+    <p v-else v-show="showProjects">Number of projects: {{ projectCount }}</p>
+  </section>
 </template>
 
 <style scoped>
-.projects{
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    background-color: pink;
-    font-size: 30px;
-    color: white;
+.projects {
+  padding: 40px;
+  margin: 0;
+  height: 80vh;
+  background: #f4c270;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 100px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style-position: inside;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 40px;
+}
+
+button {
+  background-color: #16a085;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: #1abc9c;
 }
 </style>

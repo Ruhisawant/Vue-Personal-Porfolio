@@ -26,40 +26,46 @@ watch(inputValue, (newValue, oldValue) => {
 
 <template>
   <section class="home">
-    <div>Home</div>
-    
     <h1 v-if="welcome" class="welcome-message">Welcome!</h1>
-    <h1 v-else class="welcome-message">Hello</h1>
+    <h1 v-else class="welcome-message">Hi! I'm Ruhi</h1>
 
-    <button @click="welcome = !welcome">Toggle</button>
-
+    <button @click="welcome = !welcome">Toggle Message</button>
     <button @click="increment">Visitor Counter</button>
+    <button @click="showMessage = !showMessage">Show Counter</button>
 
-    <button @click="showMessage = !showMessage">Toggle Message</button>
     <p v-show="showMessage">Counter: {{ counter }}</p>
-
-    <input type="text" v-model="inputValue" placeholder="Enter something">
   </section>
-    
 </template>
 
 <style scoped>
-.home{
-  padding: 0;
+.home {
+  padding: 40px;
   margin: 0;
-  height: 100vh;
-  background-color: blue;
-  font-size: 30px;
+  height: 90vh;
+  background-color: #a2d1f0;
   color: white;
-  animation: fadeIn 1s ease-in-out;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.welcome-message {
-  transition: opacity 0.5s ease-in-out;
+h1 {
+  margin-top: 200px;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+button {
+  background-color: #16a085;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px 0;
+}
+
+button:hover {
+  background-color: #1abc9c;
 }
 </style>
