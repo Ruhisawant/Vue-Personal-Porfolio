@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import Contacts from './components/Contacts.vue'
