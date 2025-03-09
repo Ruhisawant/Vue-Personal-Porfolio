@@ -59,4 +59,5 @@ This personal portfolio website, built with Vue 3, showcases a home section, pro
 - Pinia
 - CSS Animations
 
+
 Thank you for visiting!
