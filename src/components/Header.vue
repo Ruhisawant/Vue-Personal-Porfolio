@@ -1,6 +1,18 @@
 <script setup>
-const scrollToSection = (id) => {
-  const section = document.getElementById(id);
+import { ref } from 'vue';
+import { NButton, NSpace } from 'naive-ui';
+
+const links = ref([
+  { name: 'Home', target: 'home' },
+  { name: 'Projects', target: 'projects' },
+  { name: 'Contact', target: 'contact' }
+]);
+
+const activeLink = ref('home');
+
+const handleClick = (target) => {
+  activeLink.value = target;
+  const section = document.getElementById(target);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -10,9 +22,16 @@ const scrollToSection = (id) => {
 <template>
   <n-layout-header class="header">
     <n-space>
-      <n-button strong secondary @click="scrollToSection('home')"> Home </n-button>
-      <n-button strong secondary @click="scrollToSection('projects')"> Projects </n-button>
-      <n-button strong secondary @click="scrollToSection('contact')"> Contact </n-button>
+      <n-button
+        v-for="(link, index) in links"
+        :key="index"
+        strong
+        secondary
+        :class="{ active: activeLink === link.target }"
+        @click="handleClick(link.target)"
+      >
+        {{ link.name }}
+      </n-button>
     </n-space>
   </n-layout-header>
 </template>
@@ -28,16 +47,21 @@ const scrollToSection = (id) => {
   z-index: 1;
 }
 
-n-space {
+.n-space {
   justify-content: center;
   align-items: center;
   display: flex;
   gap: 50px;
 }
 
-n-button {
+.n-button {
   color: white;
   font-size: 30px;
   font-weight: 500;
+}
+
+.n-button.active,
+.n-button:hover {
+  color: #16a085;
 }
 </style>

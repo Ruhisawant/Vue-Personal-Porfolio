@@ -60,14 +60,23 @@ h2 {
 ul {
   list-style-position: inside;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 100px;
   font-size: 30px;
 }
 
-button {
-    margin-top: 30px;
-    font-size: 25px;
-    padding: 20px;
+.n-button {
+  background-color: #16a085;
+  color: white;
+  margin-top: 30px;
+  font-size: 25px;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.n-button:hover,
+.n-button:active {
+  color: white;
+  background-color: #1abc9c;
 }
 
 .project-count {
