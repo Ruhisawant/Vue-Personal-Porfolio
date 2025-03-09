@@ -9,7 +9,7 @@ const scrollToSection = (id) => {
 
 <template>
   <n-layout-header class="header">
-    <n-space justify="center">
+    <n-space>
       <n-button strong secondary @click="scrollToSection('home')"> Home </n-button>
       <n-button strong secondary @click="scrollToSection('projects')"> Projects </n-button>
       <n-button strong secondary @click="scrollToSection('contact')"> Contact </n-button>
@@ -24,6 +24,20 @@ const scrollToSection = (id) => {
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 1;
+}
+
+n-space {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 50px;
+}
+
+n-button {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
 }
 </style>
