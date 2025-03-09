@@ -29,15 +29,15 @@ const scrollToSection = (id) => {
 }
 
 n-space {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    gap: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 50px;
 }
 
 n-button {
-    color: white;
-    font-size: 30px;
-    font-weight: 500;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
 }
 </style>

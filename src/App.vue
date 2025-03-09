@@ -1,14 +1,10 @@
 <script setup>
-import { ref } from 'vue';
 import { NLayout, NLayoutContent, NMessageProvider } from 'naive-ui';
 import Header from './components/Header.vue';
 import Home from './components/Home.vue';
 import Projects from './components/Projects.vue';
 import Contacts from './components/Contacts.vue';
 import Footer from './components/Footer.vue';
-
-const navMessage = ref('');
-
 </script>
 
 <template>
@@ -26,9 +22,3 @@ const navMessage = ref('');
     </n-layout>
   </n-message-provider>
 </template>
-
-<style scoped>
-main {
-  padding: 40px;
-}
-</style>
