@@ -1,23 +1,27 @@
-# Vue 3 Personal Portfolio Website
+# Vue 3 Personal Portfolio
 
-This is a personal portfolio website built with Vue 3, showcasing a home section, projects section, and contact section. The website uses key Vue 3 features such as reactive state management, two-way data binding, dynamic list rendering, and conditional rendering.
+This personal portfolio website, built with Vue 3, showcases a home section, projects section, and contact form. The site utilizes key Vue 3 features like reactive state management with Pinia, dynamic list rendering, conditional rendering, and local storage persistence.
 
 ## Features
 
-- **Home Section**: Includes a toggle button to switch between welcome messages, a counter that increments with a button click, and a button to show/hide the counter value.
-- **Projects Section**: Displays a list of projects and provides a toggle button to show the number of projects.
-- **Contact Section**: Contains a contact form with fields for name, email, and message, using two-way data binding with `v-model`.
-- **Persistent Data**: The form input data is stored in `localStorage` and persists even after page refresh.
-- **Smooth Animations**: Sections have smooth fade-in animations when navigated.
+- **Home Section**: Includes a toggle button to switch between welcome messages and a counter with a button to increment its value.
+- **Projects Section**: Displays a list of projects with an option to toggle the display of project count.
+- **Contact Section**: A contact form for name, email, and message submissions with two-way data binding via `v-model`.
+- **Persistent Data**: Stores form data, welcome messages, and project count in `localStorage`, ensuring persistence across page refreshes using Pinia and `pinia-plugin-persistedstate`.
+- **State Management**: Uses Pinia for managing global state, including web info and project data.
+- **Smooth Animations**: Sections fade in smoothly when navigated.
 
 ## Project Structure
 
 - `src/`
   - `components/`
-    - `Home.vue`: Displays the home section, including the welcome message and counter.
-    - `Projects.vue`: Displays the projects section with a list of projects and a project count.
-    - `Contacts.vue`: Contains the contact form for user submissions.
-  - `App.vue`: Main file that integrates the sections with smooth scrolling functionality.
+    - `Home.vue`: Displays the home section with the welcome message and counter.
+    - `Projects.vue`: Displays projects with a toggle for project count visibility.
+    - `Contacts.vue`: Contact form with fields for name, email, and message.
+  - `stores/`
+    - `useWebInfo.js`: Pinia store managing web-related data like title and navigation links, persisted in local storage.
+    - `useProjectInfo.js`: Pinia store for managing project-related data, also persisted in local storage.
+  - `App.vue`: Integrates sections with smooth scrolling functionality.
 
 ## Installation
 
@@ -32,27 +36,27 @@ This is a personal portfolio website built with Vue 3, showcasing a home section
    npm install
    ```
 
-3. Run the development server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
 
-4. Open the website in your browser:
+4. Open the site in your browser:
    ```bash
    http://localhost:5173/
    ```
 
 ## Usage
 
-- **Toggle Home Message**: Click the "Toggle Message" button to switch between welcome messages.
-- **Visitor Counter**: Click the "Visitor Counter" button to increment the counter.
-- **Projects Section**: Click the "Toggle Message" button to display the number of projects.
-- **Contact Form**: Fill out the contact form with name, email, and message, and click submit. The data is two-way bound and can be stored in local storage.
+- **Home Section**: Toggle between different welcome messages and increment the visitor counter.
+- **Projects Section**: Toggle the display of the project count.
+- **Contact Form**: Fill in your details and submit the form. The form data is saved and persists in local storage.
 
 ## Technologies Used
 
 - Vue 3
 - Vite
+- Pinia
 - CSS Animations
 
 Thank you for visiting!
