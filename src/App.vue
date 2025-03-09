@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from 'vue';
+import { useWebInfo } from './stores/useWebInfo';
 import Header from './components/Header.vue';
 import Home from './components/Home.vue';
 import Projects from './components/Projects.vue';
 import Contacts from './components/Contacts.vue';
 import Footer from './components/Footer.vue';
+
+const webInfo = useWebInfo();
 
 const links = ref([
   { name: 'Home', target: 'home' },

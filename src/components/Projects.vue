@@ -1,22 +1,47 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { NButton, NCard } from 'naive-ui';
+import { storeToRefs } from 'pinia';
+import { useProjectInfo } from '../stores/useProjectInfo';
 
-const projects = ref(['1', '2', '3']);
+const projectInfo = useProjectInfo();
+const { projects } = storeToRefs(projectInfo);
+
 const showProjects = ref(false);
 const projectCount = computed(() => projects.value.length);
+
+const deleteProject = (id) => {
+  projects.value = projects.value.filter(project => project.id !== id);
+};
+
+const addProject = () => {
+  projects.value.push({
+    id: projects.value.length + 1,
+    name: 'New Project',
+    description: 'A new project added!'
+  });
+};
 </script>
 
 <template>
   <section id="projects">
     <n-card class="project-card">
-        <h2>My Projects</h2>
+      <h2>My Projects</h2>
       <ul>
-        <li v-for="project in projects" :key="project">{{ project }}</li>
+        <li v-for="project in projects" :key="project.id" class="project-item">
+          <strong>{{ project.name }}</strong>: {{ project.description }}
+          <n-button type="error" size="small" class="delete-btn" @click="deleteProject(project.id)">
+            Delete Project
+          </n-button>
+        </li>
       </ul>
-      
+
+      <n-button type="primary" strong secondary @click="addProject">
+        Add Project
+      </n-button>
+
       <n-button type="primary" strong secondary @click="showProjects = !showProjects">
-        Toggle Message
+        Show Project #
       </n-button>
 
       <p v-if="projects.length === 0">No projects available</p>
@@ -62,6 +87,26 @@ ul {
   text-align: left;
   padding-left: 100px;
   font-size: 30px;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  margin-left: 20px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
 }
 
 .n-button {
