@@ -1,12 +1,16 @@
 <script setup>
 import { ref } from 'vue';
 import { NButton, NSpace } from 'naive-ui';
+import { defineProps, defineEmits } from 'vue';
 
-const links = ref([
-  { name: 'Home', target: 'home' },
-  { name: 'Projects', target: 'projects' },
-  { name: 'Contact', target: 'contact' }
-]);
+const props = defineProps({
+  links: {
+    type: Array,
+    required: true
+  }
+});
+
+const emit = defineEmits(['navigate']);
 
 const activeLink = ref('home');
 
@@ -16,6 +20,7 @@ const handleClick = (target) => {
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  emit('navigate', target);
 };
 </script>
 

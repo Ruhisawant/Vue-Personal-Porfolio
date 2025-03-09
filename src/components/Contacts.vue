@@ -65,15 +65,16 @@ input, textarea {
 }
 
 button {
-  background-color: #16a085;
-  color: white;
-  font-size: 20px;
-  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid transparent;
   padding: 12px 15px;
-  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #16a085;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin: 20px 0;
   margin-bottom: 100px;
+  transition: border-color 0.25s;
 }
 
 button:hover {
