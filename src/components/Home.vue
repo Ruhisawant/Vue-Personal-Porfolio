@@ -24,7 +24,7 @@ watch(inputValue, (newValue) => {
 </script>
 
 <template>
-  <section class="home">
+  <section id="home" class="section">
     <h1 v-if="welcome" class="welcome-message">Welcome!</h1>
     <h1 v-else class="welcome-message">Hi! I'm Ruhi</h1>
 
@@ -37,7 +37,7 @@ watch(inputValue, (newValue) => {
 </template>
 
 <style scoped>
-.home {
+section {
   padding: 40px;
   margin: 0;
   height: 90vh;
