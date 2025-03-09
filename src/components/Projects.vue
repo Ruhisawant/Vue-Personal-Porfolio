@@ -3,6 +3,8 @@ import { ref, computed } from 'vue';
 import { NButton, NCard } from 'naive-ui';
 import { storeToRefs } from 'pinia';
 import { useProjectInfo } from '../stores/useProjectInfo';
+import { TrashOutline } from '@vicons/ionicons5';
+import { NIcon } from 'naive-ui';
 
 const projectInfo = useProjectInfo();
 const { projects } = storeToRefs(projectInfo);
@@ -30,9 +32,13 @@ const addProject = () => {
       <ul>
         <li v-for="project in projects" :key="project.id" class="project-item">
           <strong>{{ project.name }}</strong>: {{ project.description }}
-          <n-button type="error" size="small" class="delete-btn" @click="deleteProject(project.id)">
-            Delete Project
-          </n-button>
+          
+          <n-icon 
+            class="delete-icon" 
+            @click="deleteProject(project.id)"
+            :style="{ cursor: 'pointer' }">
+            <TrashOutline />
+          </n-icon>
         </li>
       </ul>
 
@@ -96,19 +102,6 @@ ul {
   margin-bottom: 10px;
 }
 
-.delete-btn {
-  margin-left: 20px;
-  background-color: #e74c3c;
-  color: white;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.delete-btn:hover {
-  background-color: #c0392b;
-}
-
 .n-button {
   background-color: #16a085;
   color: white;
@@ -116,6 +109,7 @@ ul {
   font-size: 25px;
   padding: 25px;
   border-radius: 10px;
+  margin: 0 20px;
 }
 
 .n-button:hover,
@@ -128,6 +122,16 @@ ul {
   animation: slideUp 1s ease-out;
   margin-top: 15px;
   font-size: 20px;
+}
+
+.delete-icon {
+  color: #e74c3c;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+.delete-icon:hover {
+  color: #c0392b;
 }
 
 @keyframes fadeIn {
