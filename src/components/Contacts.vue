@@ -7,7 +7,7 @@ const message = ref('');
 </script>
 
 <template>
-  <section class="contact">
+  <section id="contact">
     <h1>Contact</h1>
     <form>
       <label>Name:</label>
@@ -25,10 +25,9 @@ const message = ref('');
 </template>
 
 <style scoped>
-.contact {
+section {
   margin: 0;
-  height: 80vh;
-  background-color: #f9998f;
+  background-color: #a2d1f0;
   color: white;
   font-size: 30px;
   display: flex;
@@ -51,23 +50,30 @@ form {
   align-items: flex-start;
 }
 
+label {
+  font-size: 35px;
+  margin-bottom: 0;
+}
+
 input, textarea {
   padding: 12px;
-  margin: 15px 0;
+  margin-bottom: 25px;
   border-radius: 5px;
   border: 1px solid #ddd;
   width: 600px;
+  background-color: rgb(105, 105, 105);
 }
 
 button {
   background-color: #16a085;
   color: white;
   font-size: 20px;
-  margin: 30px 0;
+  margin: 20px 0;
   padding: 12px 15px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-bottom: 100px;
 }
 
 button:hover {

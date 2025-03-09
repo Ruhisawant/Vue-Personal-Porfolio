@@ -16,7 +16,7 @@ const navMessage = ref('');
     <n-layout>
       <Header />
 
-      <n-layout-content content-style="padding-top: 70px;">
+      <n-layout-content>
         <Home />
         <Projects />
         <Contacts />

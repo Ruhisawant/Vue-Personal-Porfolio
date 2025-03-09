@@ -12,7 +12,7 @@ const scrollToSection = (id) => {
     <n-space justify="center">
       <n-button strong secondary @click="scrollToSection('home')"> Home </n-button>
       <n-button strong secondary @click="scrollToSection('projects')"> Projects </n-button>
-      <n-button strong secondary @click="scrollToSection('contacts')"> Contact </n-button>
+      <n-button strong secondary @click="scrollToSection('contact')"> Contact </n-button>
     </n-space>
   </n-layout-header>
 </template>

@@ -38,9 +38,9 @@ watch(inputValue, (newValue) => {
 
 <style scoped>
 section {
-  padding: 40px;
+  padding: 10px;
   margin: 0;
-  height: 90vh;
+  min-height: 75vh;
   background-color: #a2d1f0;
   color: white;
   font-size: 30px;
@@ -53,7 +53,7 @@ section {
 }
 
 h1 {
-  margin-top: 200px;
+  margin-top: 150px;
 }
 
 button {

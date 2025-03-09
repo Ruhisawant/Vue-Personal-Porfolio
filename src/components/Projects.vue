@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
+import { NButton, NCard } from 'naive-ui';
 
 const projects = ref(['1', '2', '3']);
 const showProjects = ref(false);
@@ -7,23 +8,29 @@ const projectCount = computed(() => projects.value.length);
 </script>
 
 <template>
-  <section class="projects">
-    <h1>Projects</h1>
-    <ul>
-      <li v-for="project in projects" :key="project">{{ project }}</li>
-    </ul>
-    <button @click="showProjects = !showProjects">Toggle Message</button>
-    <p v-if="projects.length === 0">No projects available</p>
-    <p v-else v-show="showProjects" class="project-count">Number of projects: {{ projectCount }}</p>
+  <section id="projects">
+    <n-card class="project-card">
+        <h2>My Projects</h2>
+      <ul>
+        <li v-for="project in projects" :key="project">{{ project }}</li>
+      </ul>
+      
+      <n-button type="primary" strong secondary @click="showProjects = !showProjects">
+        Toggle Message
+      </n-button>
+
+      <p v-if="projects.length === 0">No projects available</p>
+      <p v-else v-show="showProjects" class="project-count">
+        Number of projects: {{ projectCount }}
+      </p>
+    </n-card>
   </section>
 </template>
 
 <style scoped>
-.projects {
-  padding: 40px;
-  margin: 0;
-  height: 80vh;
-  background: #f4c270;
+section {
+  padding: 100px;
+  background: #a2d1f0;
   color: white;
   font-size: 30px;
   display: flex;
@@ -34,35 +41,39 @@ const projectCount = computed(() => projects.value.length);
   animation: fadeIn 1s forwards;
 }
 
-h1 {
-  font-size: 100px;
+.project-card {
+  max-width: 1500px;
+  min-height: 600px;
+  background-color: #85b5d1;
+  color: white;
+  font-size: 30px;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 90px;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin: 40px 0;
+  color: white;
 }
 
 ul {
   list-style-position: inside;
   text-align: left;
   padding-left: 20px;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 button {
-  background-color: #16a085;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 30px;
-}
-
-button:hover {
-  background-color: #1abc9c;
+    margin-top: 30px;
+    font-size: 25px;
+    padding: 20px;
 }
 
 .project-count {
   animation: slideUp 1s ease-out;
+  margin-top: 15px;
+  font-size: 20px;
 }
 
 @keyframes fadeIn {
