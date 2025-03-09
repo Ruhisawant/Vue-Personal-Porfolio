@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { NLayout, NLayoutContent, NCard, NMessageProvider } from 'naive-ui';
+import { NLayout, NLayoutContent, NMessageProvider } from 'naive-ui';
 import Header from './components/Header.vue';
 import Home from './components/Home.vue';
 import Projects from './components/Projects.vue';
@@ -30,6 +30,5 @@ const navMessage = ref('');
 <style scoped>
 main {
   padding: 40px;
-  background-color: #ecf0f1;
 }
 </style>

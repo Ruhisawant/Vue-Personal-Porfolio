@@ -1,6 +1,6 @@
 <template>
     <n-layout-footer class="footer">
-      <n-text depth="3">© 2025 Ruhi Sawant. All rights reserved.</n-text>
+      <n-text depth="3">Thank you for visiting my website!</n-text>
     </n-layout-footer>
   </template>
   

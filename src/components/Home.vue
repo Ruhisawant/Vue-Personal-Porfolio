@@ -40,7 +40,7 @@ watch(inputValue, (newValue) => {
 section {
   padding: 10px;
   margin: 0;
-  min-height: 75vh;
+  min-height: 80vh;
   background-color: #a2d1f0;
   color: white;
   font-size: 30px;
@@ -54,16 +54,19 @@ section {
 
 h1 {
   margin-top: 150px;
+  font-size: 3.2em;
 }
 
 button {
-  background-color: #16a085;
-  color: white;
+  border-radius: 8px;
+  border: 1px solid transparent;
   padding: 12px 20px;
-  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #16a085;
   cursor: pointer;
-  transition: background-color 0.3s;
   margin: 10px 0;
+  transition: border-color 0.25s;
 }
 
 button:hover {
