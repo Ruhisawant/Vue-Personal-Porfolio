@@ -17,18 +17,19 @@ This personal portfolio website, built with Vue 3, showcases a home section, pro
 
 - `src/`
   - `components/`
-    - `Header.vue`: Displays the home section with the welcome message and counter.
-    - `Footer.vue`: Displays projects with a toggle for project count visibility.
+    - `Header.vue`: Contains the navigation bar.
+    - `Footer.vue`: Displays footer information.
   - `pages/`
     - `Home.vue`: Displays the home section with the welcome message and counter.
     - `Projects.vue`: Displays projects with a toggle for project count visibility.
     - `Contacts.vue`: Contact form with fields for name, email, and message.
-  - `routers/`
+  - `router/`
     - `index.js`: Configures Vue Router for handling navigation.
   - `stores/`
     - `useWebInfo.js`: Pinia store managing web-related data like title and navigation links, persisted in local storage.
     - `useProjectInfo.js`: Pinia store for managing project-related data, also persisted in local storage.
   - `App.vue`: Integrates sections with smooth scrolling functionality.
+  - `main.js`: Initializes the Vue app and mounts it to the DOM.
 
 ## Installation
 
