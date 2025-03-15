@@ -7,7 +7,13 @@ export const useWebInfo = defineStore('webInfo', {
       { name: 'Home', target: 'home' },
       { name: 'Projects', target: 'projects' },
       { name: 'Contact', target: 'contact' }
-    ]
+    ],
+    activeLink: 'home'
   }),
+  actions: {
+    setActiveLink(target) {
+      this.activeLink = target;
+    }
+  },
   persist: true
 });

@@ -26,6 +26,7 @@ const message = ref('');
 
 <style scoped>
 section {
+  min-height: 90vh;
   margin: 0;
   background-color: #a2d1f0;
   color: white;

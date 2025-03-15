@@ -38,9 +38,8 @@ watch(inputValue, (newValue) => {
 
 <style scoped>
 section {
-  padding: 10px;
   margin: 0;
-  min-height: 80vh;
+  min-height: 94vh;
   background-color: #a2d1f0;
   color: white;
   font-size: 30px;

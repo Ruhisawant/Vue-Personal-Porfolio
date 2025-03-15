@@ -1,26 +1,14 @@
 <script setup>
-import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useWebInfo } from '../stores/useWebInfo';
 import { NButton, NSpace } from 'naive-ui';
-import { defineProps, defineEmits } from 'vue';
 
-const props = defineProps({
-  links: {
-    type: Array,
-    required: true
-  }
-});
-
-const emit = defineEmits(['navigate']);
-
-const activeLink = ref('home');
+const router = useRouter();
+const webInfo = useWebInfo();
 
 const handleClick = (target) => {
-  activeLink.value = target;
-  const section = document.getElementById(target);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  emit('navigate', target);
+  webInfo.setActiveLink(target);
+  router.push({ name: target });
 };
 </script>
 
@@ -28,11 +16,11 @@ const handleClick = (target) => {
   <n-layout-header class="header">
     <n-space>
       <n-button
-        v-for="(link, index) in links"
+        v-for="(link, index) in webInfo.links"
         :key="index"
         strong
         secondary
-        :class="{ active: activeLink === link.target }"
+        :class="{ active: webInfo.activeLink === link.target }"
         @click="handleClick(link.target)"
       >
         {{ link.name }}

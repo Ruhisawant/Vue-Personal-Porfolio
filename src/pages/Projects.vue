@@ -60,7 +60,7 @@ const addProject = () => {
 
 <style scoped>
 section {
-  padding: 100px;
+  padding: 145px 100px;
   background: #a2d1f0;
   color: white;
   font-size: 30px;
