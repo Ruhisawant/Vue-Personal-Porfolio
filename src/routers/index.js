@@ -9,9 +9,9 @@ const routes = [
   { path: '/contact', name: 'contact', component: Contact }
 ];
 
-const router = createRouter({
+const routers = createRouter({
   history: createWebHistory(),
   routes
 });
 
-export default router;
+export default routers;

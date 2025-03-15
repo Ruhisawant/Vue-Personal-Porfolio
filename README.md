@@ -10,14 +10,21 @@ This personal portfolio website, built with Vue 3, showcases a home section, pro
 - **Persistent Data**: Stores form data, welcome messages, and project count in `localStorage`, ensuring persistence across page refreshes using Pinia and `pinia-plugin-persistedstate`.
 - **State Management**: Uses Pinia for managing global state, including web info and project data.
 - **Smooth Animations**: Sections fade in smoothly when navigated.
+- **Vue Router**: Implements navigation between homepage and project page.
+- **Props & Emit**: Uses props to pass data between parent and child components and emits for event handling.
 
 ## Project Structure
 
 - `src/`
   - `components/`
+    - `Header.vue`: Displays the home section with the welcome message and counter.
+    - `Footer.vue`: Displays projects with a toggle for project count visibility.
+  - `pages/`
     - `Home.vue`: Displays the home section with the welcome message and counter.
     - `Projects.vue`: Displays projects with a toggle for project count visibility.
     - `Contacts.vue`: Contact form with fields for name, email, and message.
+  - `routers/`
+    - `index.js`: Configures Vue Router for handling navigation.
   - `stores/`
     - `useWebInfo.js`: Pinia store managing web-related data like title and navigation links, persisted in local storage.
     - `useProjectInfo.js`: Pinia store for managing project-related data, also persisted in local storage.
@@ -51,13 +58,14 @@ This personal portfolio website, built with Vue 3, showcases a home section, pro
 - **Home Section**: Toggle between different welcome messages and increment the visitor counter.
 - **Projects Section**: Toggle the display of the project count.
 - **Contact Form**: Fill in your details and submit the form. The form data is saved and persists in local storage.
+- **Navigation**: Use Vue Router to navigate between the homepage and project page.
 
 ## Technologies Used
 
 - Vue 3
 - Vite
 - Pinia
+- Vue Router
 - CSS Animations
-
 
 Thank you for visiting!
