@@ -7,18 +7,18 @@ import Footer from './components/Footer.vue';
 const webInfo = useWebInfo();
 
 const links = ref([
-  { name: 'Home', target: '/' },
+  { name: 'Home', target: '/home' },
   { name: 'Projects', target: '/projects' },
   { name: 'Contact', target: '/contact' }
 ]);
 </script>
 
 <template>
-  <n-layout>
+  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
     <Header :title="'My Portfolio'" :links="links" />
-    <n-layout-content>
+    <main class="relative">
       <router-view />
-    </n-layout-content>
+    </main>
     <Footer />
-  </n-layout>
+  </div>
 </template>

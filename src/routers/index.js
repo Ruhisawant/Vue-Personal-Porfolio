@@ -4,7 +4,7 @@ import Projects from '../pages/Projects.vue';
 import Contact from '../pages/Contact.vue';
 
 const routes = [
-  { path: '/', name: 'home', component: Home },
+  { path: '/home', name: 'home', component: Home },
   { path: '/projects', name: 'projects', component: Projects },
   { path: '/contact', name: 'contact', component: Contact }
 ];
