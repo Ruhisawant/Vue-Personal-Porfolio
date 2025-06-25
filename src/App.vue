@@ -7,7 +7,7 @@ import Footer from './components/Footer.vue';
 const webInfo = useWebInfo();
 
 const links = ref([
-  { name: 'Home', target: '/home' },
+  { name: 'Home', target: '/' },
   { name: 'Projects', target: '/projects' },
   { name: 'Contact', target: '/contact' }
 ]);

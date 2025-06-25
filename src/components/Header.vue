@@ -1,18 +1,19 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { useWebInfo } from '../stores/useWebInfo';
+import logo from '../assets/logo.png';
+
+defineProps({
+  title: String,
+  links: Array
+});
 
 const router = useRouter();
 const route = useRoute();
-const webInfo = useWebInfo();
 
-const isActiveLink = computed(() => (target) => {
-  return route.path === target || webInfo.activeLink === target;
-});
+const isActiveLink = computed(() => (target) => route.path === target);
 
 const handleClick = (target) => {
-  webInfo.setActiveLink(target);
   router.push({ path: target });
 };
 </script>
@@ -22,12 +23,12 @@ const handleClick = (target) => {
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
-        <img src="../assets/logo.png" alt="Logo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
+        <img :src="logo" alt="Logo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
 
         <!-- Nav Links -->
         <nav class="hidden md:flex space-x-8">
           <button
-            v-for="link in webInfo.links"
+            v-for="link in links"
             :key="link.target"
             @click="handleClick(link.target)"
             :class="[
