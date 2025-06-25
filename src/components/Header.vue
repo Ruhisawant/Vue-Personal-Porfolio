@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import logo from '../assets/logo.png';
+import logoUrl from '/logo.png';
 
 defineProps({
   title: String,
@@ -23,9 +23,9 @@ const handleClick = (target) => {
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
-        <img :src="logo" alt="Logo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
-
-        <!-- Nav Links -->
+        <img :src="logoUrl" alt="Logo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
+        
+        <!-- Rest of your template remains the same -->
         <nav class="hidden md:flex space-x-8">
           <button
             v-for="link in links"
@@ -44,7 +44,6 @@ const handleClick = (target) => {
       </div>
     </div>
 
-    <!-- Animated background elements for header -->
     <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
       <div class="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div class="absolute -top-20 -left-20 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
