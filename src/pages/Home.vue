@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
+import portfolioPhoto from '/portfolio-photo.jpeg';
 
 const router = useRouter();
 
@@ -240,8 +241,8 @@ const displayText = computed(() => {
               <div class="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
               <div class="absolute bottom-4 left-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
               <div class="absolute bottom-4 right-4 w-3 h-3 bg-violet-400 rounded-full animate-pulse" style="animation-delay: 3s;"></div>
-              
-              <img src="../assets/portfolio-photo.jpeg" alt="My Portfolio Photo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
+
+              <img :src="portfolioPhoto" alt="My Portfolio Photo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
             </div>
           </div>
         </div>
