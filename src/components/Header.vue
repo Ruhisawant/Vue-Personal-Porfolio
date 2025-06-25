@@ -7,8 +7,6 @@ const router = useRouter();
 const route = useRoute();
 const webInfo = useWebInfo();
 
-const isMobileMenuOpen = ref(false);
-
 const isActiveLink = computed(() => (target) => {
   return route.path === target || webInfo.activeLink === target;
 });
@@ -16,11 +14,6 @@ const isActiveLink = computed(() => (target) => {
 const handleClick = (target) => {
   webInfo.setActiveLink(target);
   router.push({ path: target });
-  isMobileMenuOpen.value = false;
-};
-
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
 </script>
 
@@ -28,16 +21,10 @@ const toggleMobileMenu = () => {
   <header class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <!-- Logo/Brand -->
-        <div 
-          @click="handleClick('/')"
-          class="cursor-pointer transition-transform duration-200 hover:scale-105"
-        >
-          <h2 class="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent">
-            Portfolio
-          </h2>
-        </div>
+        <!-- Logo -->
+        <img src="../assets/logo.png" alt="Logo" class="rounded-xl shadow-lg max-w-full max-h-full object-cover" />
 
+        <!-- Nav Links -->
         <nav class="hidden md:flex space-x-8">
           <button
             v-for="link in webInfo.links"
@@ -46,8 +33,8 @@ const toggleMobileMenu = () => {
             :class="[
               'px-4 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105',
               isActiveLink(link.target) 
-                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/25' 
-                : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25' 
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/50 border border-transparent hover:border-cyan-400/30'
             ]"
           >
             {{ link.name }}

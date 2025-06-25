@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const currentYear = ref(new Date().getFullYear());
-
 const socialLinks = [
   { 
     name: 'GitHub', 
@@ -26,13 +24,6 @@ const socialLinks = [
   }
 ];
 
-const quickLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Contact', path: '/contact' }
-];
-
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -46,116 +37,28 @@ const openSocialLink = (url) => {
 </script>
 
 <template>
-  <footer class="relative bg-gradient-to-br from-gray-900 via-purple-900/20 to-indigo-900/20 text-white">
-    <!-- Animated background elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
-
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Main Footer Content -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        <!-- Brand Section -->
-        <div class="space-y-4">
-          <h3 class="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent">
-            Ruhi's Portfolio
-          </h3>
-          <p class="text-gray-300 leading-relaxed">
-            Passionate developer creating amazing web experiences with modern technologies. 
-            Let's build something incredible together.
-          </p>
-          <!-- Social Links -->
-          <div class="flex space-x-4 pt-2">
-            <button
-              v-for="social in socialLinks"
-              :key="social.name"
-              @click="openSocialLink(social.url)"
-              :title="social.name"
-              class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:shadow-lg group"
-            >
-              <svg class="w-5 h-5 fill-current text-gray-300 group-hover:text-white transition-colors duration-200" viewBox="0 0 24 24">
-                <path :d="social.icon" />
-              </svg>
-            </button>
-          </div>
+  <footer class="relative bg-slate-800 backdrop-blur text-white border-t border-slate-700/50">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-2 text-slate-400">
+          <span>Copyright &copy; 2025 Ruhi Sawant</span>
         </div>
-
-        <!-- Quick Links -->
-        <div class="space-y-4">
-          <h4 class="text-lg font-semibold text-purple-300">Quick Links</h4>
-          <nav class="space-y-2">
-            <router-link
-              v-for="link in quickLinks"
-              :key="link.path"
-              :to="link.path"
-              class="block text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-200"
-            >
-              {{ link.name }}
-            </router-link>
-          </nav>
+        <div class="flex justify-center space-x-6">
+          <button v-for="social in socialLinks" :key="social.name" @click="openSocialLink(social.url)" :title="social.name" class="group w-12 h-12 bg-slate-700/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25 backdrop-blur-sm border border-slate-700/50 hover:border-cyan-400/30 relative overflow-hidden">
+            <svg class="w-5 h-5 fill-current text-slate-400 group-hover:text-cyan-300 transition-colors duration-300 relative z-10" viewBox="0 0 24 24">
+              <path :d="social.icon" />
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/20 to-cyan-400/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </button>
         </div>
-
-        <!-- Contact Info -->
-        <div class="space-y-4">
-          <h4 class="text-lg font-semibold text-indigo-300">Get In Touch</h4>
-          <div class="space-y-3 text-gray-300">
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              <span>ruhi@example.com</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Mumbai, India</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
-
-      <!-- Footer Bottom -->
-      <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-        <div class="flex items-center space-x-2 text-gray-400">
-          <span>&copy; {{ currentYear }} Ruhi's Portfolio. Made with</span>
-          <svg class="w-4 h-4 text-red-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
-          </svg>
-          <span>using Vue.js</span>
-        </div>
-        
-        <button
-          @click="scrollToTop"
-          class="flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
-        >
-          <svg class="w-4 h-4 transition-transform duration-200 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button @click="scrollToTop" class="group flex items-center space-x-2 px-6 py-3 bg-slate-700/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 backdrop-blur-sm border border-slate-700/50 hover:border-cyan-400/30 relative overflow-hidden">
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-cyan-300 transition-all duration-300 group-hover:-translate-y-1 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
           </svg>
-          <span class="text-sm">Back to Top</span>
+          <span class="text-sm text-slate-400 group-hover:text-cyan-300 transition-colors duration-300 relative z-10">Back to Top</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/10 to-cyan-400/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
         </button>
       </div>
     </div>
   </footer>
 </template>
-
-<style scoped>
-/* Custom animations */
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-.animate-heartbeat {
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
-</style>
