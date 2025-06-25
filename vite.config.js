@@ -7,6 +7,11 @@ export default defineConfig({
   plugins: [vue(), tailwindcss()],
   build: {
     outDir: 'dist',
-    assetsDir: 'assets'
-  }
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 })
